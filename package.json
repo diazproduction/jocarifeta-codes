@@ -1,0 +1,18 @@
+{
+  "name": "jocarifeta-codes",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "eleventy --serve & postcss src/styles/tailwind.css --o _tmp/style.css --watch",
+    "build": "ELEVENTY_PRODUCTION=true eleventy && NODE_ENV=production postcss styles/tailwind.css --o _site/style.css"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^0.11.0",
+    "alpinejs": "^2.7.0",
+    "postcss-clean": "^1.1.0",
+    "postcss-cli": "^7.1.2",
+    "prettier": "^2.1.1",
+    "tailwindcss": "^1.8.8"
+  }
+}
