@@ -1,0 +1,11 @@
+---
+pagination:
+    alias: article
+    data: articles
+    size: 1
+permalink: "blog/{{ article.slug }}/index.html"
+---
+{% extends "_includes/default.njk" %}
+{% block content %}
+    <h1>{{ article.title }}</h1>
+{% endblock %}

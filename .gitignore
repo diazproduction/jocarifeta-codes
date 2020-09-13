@@ -4,3 +4,7 @@ node_modules
 # Build
 _site
 _tmp
+
+# Others
+.env
+.vscode
