@@ -12,4 +12,8 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addShortcode('version', function () {
     return String(Date.now());
   });
+
+  eleventyConfig.addFilter('consoleDump', function (anything) {
+    console.log(anything);
+  });
 };
