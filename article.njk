@@ -7,5 +7,10 @@ permalink: "blog/{{ article.slug }}/index.html"
 ---
 {% extends "_includes/default.njk" %}
 {% block content %}
-    <h1>{{ article.title }}</h1>
+    <article class="max-w-screen-sm mx-auto">
+        <h1>{{ article.title }}</h1>
+        <p class="whitespace-pre-line font-body">
+            {{ article.content }}
+        </p>
+    </article>
 {% endblock %}

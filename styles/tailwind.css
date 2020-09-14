@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  color: theme('colors.black');
+}
+
 h1 {
-  @apply text-3xl;
+  @apply font-mono;
+  @apply text-5xl;
+  @apply px-5;
+  background: theme('colors.yellow');
+  max-width: min-content;
 }
