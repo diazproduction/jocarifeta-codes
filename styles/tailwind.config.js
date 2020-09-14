@@ -10,9 +10,14 @@ module.exports = {
     },
   },
   theme: {
+    fontFamily: {
+      mono: ['Major Mono Display', 'monospace'],
+      body: ['Ubuntu Mono', 'sans-serif'],
+    },
     extend: {
       colors: {
-        change: 'black',
+        yellow: '#fff1a5',
+        black: '#444',
       },
     },
   },

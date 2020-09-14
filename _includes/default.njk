@@ -10,13 +10,16 @@
     {% endif %}
     <meta http-equiv="x-ua-compatible" content="ie=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover"/>
+    <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Ubuntu+Mono&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="/style.css?v={% version %}"/>
     {% block head %}{% endblock %}
     <script src="/js/alpine.js?v={% version %}"></script>
   </head>
   <body>
-    {% block content %}
-      {{ content | safe }}
-    {% endblock %}
+    <div class="container mx-auto">
+      {% block content %}
+        {{ content | safe }}
+      {% endblock %}
+    </div>
   </body>
 </html>
