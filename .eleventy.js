@@ -1,4 +1,5 @@
 require('dotenv').config();
+const dayjs = require('dayjs');
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addWatchTarget('./_tmp/style.css');
@@ -15,5 +16,9 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addFilter('consoleDump', function (anything) {
     console.log(anything);
+  });
+
+  eleventyConfig.addFilter('dayjs', function (date) {
+    return dayjs(date).format('MMMM D, YYYY');
   });
 };
