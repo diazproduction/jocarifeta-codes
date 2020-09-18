@@ -19,5 +19,8 @@
     "postcss-cli": "^7.1.2",
     "prettier": "^2.1.1",
     "tailwindcss": "^1.8.8"
+  },
+  "dependencies": {
+    "dayjs": "^1.8.36"
   }
 }
