@@ -15,6 +15,7 @@ const getAllArticles = async () => {
         query: `{
           allArticles {
             title
+            author
             content
             createdAt
             slug
@@ -25,12 +26,15 @@ const getAllArticles = async () => {
 
     const json = await data.json();
 
-    return json.data.allArticles.map(({ title, content, createdAt, slug }) => ({
-      title,
-      content,
-      createdAt,
-      slug,
-    }));
+    return json.data.allArticles.map(
+      ({ title, author, content, createdAt, slug }) => ({
+        title,
+        author,
+        content,
+        created: createdAt,
+        slug,
+      }),
+    );
   } catch (error) {
     console.error(error);
   }
