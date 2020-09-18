@@ -1,10 +1,21 @@
+---
+pagination:
+    data: articles
+    size: 5
+---
+
 {% extends "_includes/default.njk" %}
 {% block title %}Jocarifeta{% endblock %}
 {% block content %}
-  <div class="container p-4">
-    <div>
-      <h1>Jocarifeta</h1>
-      <span x-data="{message:'Hello World!'}" x-text="message"></span>
-    </div>
+  <div class="max-w-screen-sm mx-auto">
+    {% for article in pagination.items %}
+      <h1>{{ article.title }}</h1>
+      <p>By
+        <a>{{ article.author }}</a>
+        –
+        <span>{{ article.created | dayjs }}</span>
+      </p>
+      <a href="blog/{{ article.slug }}">Read article</a>
+    {% endfor %}
   </div>
 {% endblock %}

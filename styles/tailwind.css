@@ -13,3 +13,28 @@ h1 {
   background: theme('colors.yellow');
   max-width: min-content;
 }
+
+a {
+  @apply border-b-2;
+  @apply border-black;
+  @apply cursor-pointer;
+  @apply relative;
+  @apply transition-colors duration-300;
+}
+
+a:before {
+  content: '';
+  @apply transition-transform duration-300 origin-bottom ease-out;
+  transform: scaleY(0);
+}
+
+a:hover {
+  @apply text-white;
+}
+
+a:hover:before {
+  content: '';
+  @apply w-full h-full absolute bg-black bottom-0 -z-1;
+  @apply transition-transform duration-300 ease-out;
+  transform: scaleY(1);
+}

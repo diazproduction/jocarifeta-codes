@@ -19,6 +19,9 @@ module.exports = {
         yellow: '#fff1a5',
         black: '#444',
       },
+      zIndex: {
+        '-1': '-1',
+      },
     },
   },
   variants: {},
