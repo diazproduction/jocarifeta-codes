@@ -7,11 +7,17 @@
 }
 
 h1 {
-  @apply font-mono;
-  @apply text-5xl;
+  @apply font-mono inline-block;
+  @apply text-3xl;
   @apply px-5;
   background: theme('colors.yellow');
-  max-width: min-content;
+  max-width: max-content;
+}
+
+@screen sm {
+  h1 {
+    @apply text-5xl;
+  }
 }
 
 a {

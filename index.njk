@@ -7,21 +7,26 @@ pagination:
 {% extends "_includes/default.njk" %}
 {% block title %}Jocarifeta{% endblock %}
 {% block content %}
-  <div class="max-w-screen-sm mx-auto pb-12">
+  <div class="max-w-screen-sm mx-auto pb-12 relative">
     {% for article in pagination.items %}
-      <h1>{{ article.title }}</h1>
-      <p>By
-        <a>{{ article.author }}</a>
-        –
-        <span>{{ article.created | dayjs }}</span>
-      </p>
-      <p class="py-4 whitespace-pre-line">{{ article.content }}</p>
-      <div class="text-right">
-        <a href="blog/{{ article.slug }}">Read article</a>
+      <div class="my-12 {{ 'text-right' if article.isPoem }}">
+        <h1>{{ article.title }}</h1>
+        <div class="px-5">
+          <p class="mt-4 text-gray-600">By
+            <a>{{ article.author }}</a>
+            –
+            {{ article.created | dayjs }}
+          </p>
+          <p class="py-4 whitespace-pre-line">{{ article.extract }}</p>
+          <div class="text-right">
+            <a href="blog/{{ article.slug }}">Read article</a>
+          </div>
+        </div>
       </div>
+      {{ article | consoleDump }}
     {% endfor %}
-  </div>
-  <div class="absolute bottom-0 w-full bg-yellow h-12 container flex items-center justify-center">
-    <p>you’ve reached the end of my journey…</p>
+    <div class="absolute bottom-0 max-w-full bg-yellow h-12 container flex items-center justify-center">
+      <p>you’ve reached the end of my journey…</p>
+    </div>
   </div>
 {% endblock %}
