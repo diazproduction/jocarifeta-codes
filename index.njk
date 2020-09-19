@@ -2,30 +2,31 @@
 pagination:
     data: articles
     size: 5
+description: A blog where I write whatever passes through my mind...
 ---
 
 {% extends "_includes/default.njk" %}
-{% block title %}Jocarifeta{% endblock %}
+{% block title %}skindeep{% endblock %}
 {% block content %}
-  <div class="max-w-screen-sm mx-auto pb-12 relative">
+  <div class="max-w-screen-sm mx-auto pb-12">
     {% for article in pagination.items %}
-      <div class="my-12 {{ 'text-right' if article.isPoem }}">
+      <div class="my-10 {{ 'text-right' if article.isPoem }}">
         <h1>{{ article.title }}</h1>
         <div class="px-5">
           <p class="mt-4 text-gray-600">By
-            <a>{{ article.author }}</a>
+            {{ article.author }}
             –
             {{ article.created | dayjs }}
           </p>
-          <p class="py-4 whitespace-pre-line">{{ article.extract }}</p>
+          {{ article.extract | markdown | safe }}
           <div class="text-right">
             <a href="blog/{{ article.slug }}">Read article</a>
           </div>
         </div>
       </div>
     {% endfor %}
-    <div class="absolute bottom-0 max-w-full bg-yellow h-12 container flex items-center justify-center">
-      <p>you’ve reached the end of my journey…</p>
-    </div>
+  </div>
+  <div class="absolute bottom-0 max-w-full bg-yellow h-12 container flex items-center justify-center">
+    <p>you’ve reached the end of my journey…</p>
   </div>
 {% endblock %}
