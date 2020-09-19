@@ -8,3 +8,4 @@ _tmp
 # Others
 .env
 .vscode
+.DS_Store

@@ -1,0 +1,25 @@
+{
+  "short_name": "skindeep",
+  "name": "skindeep",
+  "icons": [
+    {
+      "src": "static/imgs/favicon.ico",
+      "type": "image/x-icon",
+      "sizes": "64x64 32x32 24x24 16x16"
+    },
+    {
+      "src": "static/imgs/logo192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "static/imgs/logo512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#444444",
+  "background_color": "#fff1a5"
+}
