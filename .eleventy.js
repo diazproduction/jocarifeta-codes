@@ -1,13 +1,10 @@
 require('dotenv').config();
 const dayjs = require('dayjs');
-const markdownShortcode = require('eleventy-plugin-markdown-shortcode');
 const md = require('markdown-it')({
   breaks: true,
 });
 
 module.exports = function (eleventyConfig) {
-  eleventyConfig.addPlugin(markdownShortcode);
-
   eleventyConfig.addWatchTarget('./_tmp/style.css');
 
   eleventyConfig.addPassthroughCopy({ './_tmp/style.css': './style.css' });
