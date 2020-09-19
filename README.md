@@ -1,6 +1,6 @@
-# Jocarifeta Codes
+# skindeep
 
-Small blog written using 11ty, Alpinejs and Tailwind CSS
+Small blog written using 11ty, Tailwind CSS and DatoCMS
 
 ## Develop
 
