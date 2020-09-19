@@ -12,12 +12,15 @@ module.exports = {
   theme: {
     fontFamily: {
       mono: ['Major Mono Display', 'monospace'],
-      body: ['Ubuntu Mono', 'sans-serif'],
+      body: ['Nunito', 'sans-serif'],
     },
     extend: {
       colors: {
         yellow: '#fff1a5',
         black: '#444',
+      },
+      maxHeight: {
+        48: '12rem',
       },
       zIndex: {
         '-1': '-1',
