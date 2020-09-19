@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <title>
-      {% block title %}Does it work?{% endblock %}
+      {% block title %}skindeep{% endblock %}
     </title>
     <meta charset="UTF-8"/>
     {% if description %}
@@ -10,13 +10,16 @@
     {% endif %}
     <meta http-equiv="x-ua-compatible" content="ie=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover"/>
-    <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Nunito:wght@300;400display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Nunito:wght@300;400;600display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="/style.css?v={% version %}"/>
     {% block head %}{% endblock %}
     <script src="/js/alpine.js?v={% version %}"></script>
   </head>
   <body>
-    <div class="container mx-auto min-h-screen font-body sm:px-2">
+    <div class="container relative mx-auto min-h-screen font-body pb-10 sm:px-2 sm:pb-20">
+      <h1 class="bg-transparent text-2xl mb-6 sm:text-4xl sm:mb-20">
+        <a href="/" class="logo p-3 hover:text-black hover:bg-yellow border-b-0">skiN[deeP]</a>
+      </h1>
       {% block content %}
         {{ content | safe }}
       {% endblock %}

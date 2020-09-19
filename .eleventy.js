@@ -1,5 +1,8 @@
 require('dotenv').config();
 const dayjs = require('dayjs');
+const md = require('markdown-it')({
+  breaks: true,
+});
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addWatchTarget('./_tmp/style.css');
@@ -20,5 +23,9 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addFilter('dayjs', function (date) {
     return dayjs(date).format('MMMM D, YYYY');
+  });
+
+  eleventyConfig.addFilter('markdown', function (content) {
+    return md.render(content);
   });
 };

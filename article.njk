@@ -4,13 +4,24 @@ pagination:
     data: articles
     size: 1
 permalink: "blog/{{ article.slug }}/index.html"
+description: A blog where I write whatever passes through my mind...
 ---
 {% extends "_includes/default.njk" %}
+{% block title %}skindeep –
+    {{ article.title }}
+{% endblock %}
 {% block content %}
     <article class="max-w-screen-sm mx-auto">
-        <h1>{{ article.title }}</h1>
-        <p class="whitespace-pre-line font-body">
-            {{ article.content }}
-        </p>
+        <div class="my-10 {{ 'text-right' if article.isPoem }}">
+            <h1>{{ article.title }}</h1>
+            <div class="px-5">
+                <p class="mt-4 text-gray-600">By
+                    {{ article.author }}
+                    –
+                    {{ article.created | dayjs }}
+                </p>
+                {{ article.content | markdown | safe }}
+            </div>
+        </div>
     </article>
 {% endblock %}

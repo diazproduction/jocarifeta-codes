@@ -34,7 +34,8 @@ a:before {
   transform: scaleY(0);
 }
 
-a:hover {
+a:hover,
+a:active {
   @apply text-white;
 }
 
@@ -43,4 +44,17 @@ a:hover:before {
   @apply w-full h-full absolute bg-black bottom-0 -z-1;
   @apply transition-transform duration-300 ease-out;
   transform: scaleY(1);
+}
+
+p {
+  @apply mb-4;
+}
+
+b,
+strong {
+  @apply font-semibold;
+}
+
+.logo:before {
+  display: none;
 }
