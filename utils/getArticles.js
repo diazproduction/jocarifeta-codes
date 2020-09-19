@@ -18,6 +18,7 @@ const getAllArticles = async () => {
             author
             content
             createdAt
+            poem
             slug
           }
         }`,
@@ -27,11 +28,13 @@ const getAllArticles = async () => {
     const json = await data.json();
 
     return json.data.allArticles.map(
-      ({ title, author, content, createdAt, slug }) => ({
+      ({ title, author, content, createdAt, poem, slug }) => ({
         title,
         author,
         content,
         created: createdAt,
+        extract: getExtract(content, poem),
+        isPoem: poem,
         slug,
       }),
     );
@@ -39,5 +42,13 @@ const getAllArticles = async () => {
     console.error(error);
   }
 };
+
+function getExtract(content, isPoem) {
+  const dots = ['...'];
+  if (isPoem) {
+    return content.split('\n').slice(0, 8).concat(dots).join('\n');
+  }
+  return content.split(' ').slice(0, 110).concat(dots).join(' ');
+}
 
 module.exports = getAllArticles;
