@@ -28,7 +28,8 @@ const getAllArticles = async () => {
     const json = await data.json();
 
     return json.data.allArticles.map(
-      ({ title, author, content, createdAt, poem, slug }) => ({
+      ({ title, author, content, createdAt, poem, slug }, idx) => ({
+        idx,
         title,
         author,
         content,

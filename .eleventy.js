@@ -13,7 +13,7 @@ module.exports = function (eleventyConfig) {
   // PWA files
   eleventyConfig.addPassthroughCopy({
     './manifest.webmanifest': './manifest.webmanifest',
-    './static/imgs': './static/imgs',
+    './static/': './static/',
   });
 
   eleventyConfig.addPlugin(pluginPWA);
