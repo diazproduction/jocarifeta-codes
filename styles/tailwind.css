@@ -55,6 +55,14 @@ strong {
   @apply font-semibold;
 }
 
-.logo:before {
+.unstyled-a {
+  @apply border-b-0;
+}
+
+.unstyled-a:before {
   display: none;
+}
+
+.unstyled-a:hover {
+  @apply text-black;
 }

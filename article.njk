@@ -12,7 +12,7 @@ description: A blog where I write whatever passes through my mind...
 {% endblock %}
 {% block content %}
     <article class="max-w-screen-sm mx-auto">
-        <div class="my-10 {{ 'text-right' if article.isPoem }}">
+        <div class="my-10 {{ 'text-right' if article.idx % 2 === 0 }}">
             <h1>{{ article.title }}</h1>
             <div class="px-5">
                 <p class="mt-4 text-gray-700 font-light">By

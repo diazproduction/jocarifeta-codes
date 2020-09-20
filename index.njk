@@ -10,7 +10,7 @@ description: A blog where I write whatever passes through my mind...
 {% block content %}
   <div class="max-w-screen-sm mx-auto pb-12">
     {% for article in pagination.items %}
-      <div class="my-10 {{ 'text-right' if article.isPoem }}">
+      <div class="my-10 {{ 'text-right' if article.idx % 2 === 0 }}">
         <h1>{{ article.title }}</h1>
         <div class="px-5">
           <p class="mt-4 text-gray-700 font-light">By
@@ -19,14 +19,33 @@ description: A blog where I write whatever passes through my mind...
             {{ article.created | dayjs }}
           </p>
           {{ article.extract | markdown | safe }}
-          <div class="text-right">
-            <a href="blog/{{ article.slug }}">Read article</a>
+          <div class="{{ 'text-right' if article.idx % 2 === 0 }}">
+            <a href="/blog/{{ article.slug }}">Read article</a>
           </div>
         </div>
       </div>
     {% endfor %}
+
+    <div class="flex justify-between px-5 mt-16">
+      {% if pagination.previousPageLink %}
+        <a href="{{pagination.previousPageLink}}" class="unstyled-a relative">
+          <img class="inline-block mr-4 sm:absolute sm:mt-1 sm:-left-8" src="/static/icons/arrow.svg"/>
+          Previous page
+        </a>
+        <div></div>
+      {% endif %}
+      {% if pagination.nextPageLink %}
+        <div></div>
+        <a href="{{pagination.nextPageLink}}" class="unstyled-a relative">
+          Next page
+          <img class="inline-block ml-4 transform rotate-180 sm:absolute sm:mt-1.5" src="/static/icons/arrow.svg"/>
+        </a>
+      {% endif %}
+    </div>
   </div>
-  <div class="absolute bottom-0 max-w-full bg-yellow h-12 container flex items-center justify-center">
-    <p class="mb-0">you’ve reached the end of my journey…</p>
-  </div>
+  {% if not pagination.nextPageLink %}
+    <div class="absolute bottom-0 max-w-full bg-yellow h-12 container flex items-center justify-center">
+      <p class="mb-0">you’ve reached the end of my journey…</p>
+    </div>
+  {% endif %}
 {% endblock %}
