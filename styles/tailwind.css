@@ -66,3 +66,11 @@ strong {
 .unstyled-a:hover {
   @apply text-black;
 }
+
+.nav-link span {
+  visibility: hidden;
+}
+.nav-link:hover span,
+.active span {
+  visibility: visible;
+}

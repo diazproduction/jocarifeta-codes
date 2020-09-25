@@ -21,12 +21,38 @@
   </head>
   <body>
     <div class="container relative mx-auto min-h-screen font-body pb-10 sm:px-2 sm:pb-20">
-      <h1 class="bg-transparent text-2xl mb-6 sm:text-4xl sm:mb-20">
-        <a href="/" class="unstyled-a p-3 hover:text-black hover:bg-yellow">skiN[deeP]</a>
-      </h1>
+      <div class="flex items-center mb-6 sm:mb-20">
+        <h1 class="hidden bg-transparent text-2xl sm:text-4xl sm:block">
+          <a href="/" class="unstyled-a p-3 hover:text-black hover:bg-yellow">skiN[deeP]</a>
+        </h1>
+        <h1 class="bg-transparent text-2xl sm:text-4xl pl-0 pr-0 sm:hidden">
+          <a href="/" class="unstyled-a p-3 hover:text-black hover:bg-yellow">[]</a>
+        </h1>
+        <ul class="flex flex-grow justify-start mt-2 ml-2">
+          <li class="nav-link mr-2 sm:mr-4 {{ 'active' if page.fileSlug === '' }}">
+            <span>[
+            </span>
+            <a class="unstyled-a" href="/">Everything</a>
+            <span>
+              ]</span></li>
+          <li class="nav-link mr-2 sm:mr-4 {{ 'active' if page.fileSlug === 'stories' }}">
+            <span>[
+            </span>
+            <a class="unstyled-a" href="/stories">Stories</a>
+            <span>
+              ]</span></li>
+          <li class="nav-link mr-2 sm:mr-4 {{ 'active' if page.fileSlug === 'poems' }}">
+            <span>[
+            </span>
+            <a class="unstyled-a" href="/poems">Poems</a>
+            <span>
+              ]</span></li>
+        </ul>
+      </div>
       {% block content %}
         {{ content | safe }}
       {% endblock %}
+      {{ page.filePathStem | consoleDump }}
     </div>
     <script>
       if ("serviceWorker" in navigator) 
