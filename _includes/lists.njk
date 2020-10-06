@@ -1,5 +1,8 @@
 {% extends "_includes/default.njk" %}
+{% from "_components/pagination-arrow.njk" import PaginationArrow %}
+
 {% block title %}skindeep{% endblock %}
+
 {% block content %}
   <div class="max-w-screen-sm mx-auto pb-12">
     {% for article in pagination.items %}
@@ -22,18 +25,12 @@
 
     <div class="flex justify-between px-5 mt-16">
       {% if pagination.previousPageLink %}
-        <a href="{{pagination.previousPageLink}}" class="unstyled-a relative">
-          <img class="inline-block mr-4 sm:absolute sm:mt-1 sm:-left-8" src="/static/icons/arrow.svg"/>
-          Previous page
-        </a>
+        {{ PaginationArrow('Previous page', '{{ pagination.previousPageLink }}') }}
         <div></div>
       {% endif %}
       {% if pagination.nextPageLink %}
         <div></div>
-        <a href="{{pagination.nextPageLink}}" class="unstyled-a relative">
-          Next page
-          <img class="inline-block ml-4 transform rotate-180 sm:absolute sm:mt-1.5" src="/static/icons/arrow.svg"/>
-        </a>
+        {{ PaginationArrow('Next page', '{{ pagination.nextPageLink }}', type='right') }}
       {% endif %}
     </div>
   </div>
