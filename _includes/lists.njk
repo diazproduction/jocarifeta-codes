@@ -25,12 +25,12 @@
 
     <div class="flex justify-between px-5 mt-16">
       {% if pagination.previousPageLink %}
-        {{ PaginationArrow('Previous page', '{{ pagination.previousPageLink }}') }}
+        {{ PaginationArrow('Previous page', pagination.previousPageLink) }}
         <div></div>
       {% endif %}
       {% if pagination.nextPageLink %}
         <div></div>
-        {{ PaginationArrow('Next page', '{{ pagination.nextPageLink }}', type='right') }}
+        {{ PaginationArrow('Next page', pagination.nextPageLink, 'right') }}
       {% endif %}
     </div>
   </div>

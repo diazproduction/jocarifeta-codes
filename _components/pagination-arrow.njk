@@ -1,6 +1,11 @@
-{% macro PaginationArrow(text, href, direction = 'left') %}
-  <a href="{{href}}" class="unstyled-a relative">
+{% macro PaginationArrow(text, href = '', direction = 'left') %}
+  <a href="{{href | escape}}" class="unstyled-a relative">
+    {% if direction === 'right' %}
+      {{ text }}
+    {% endif %}
     <img class="inline-block sm:absolute {{ 'mr-4 sm:mt-1 sm:-left-8' if direction === 'left' }} {{ 'ml-4 transform rotate-180 sm:absolute sm:mt-1.5' if direction === 'right' }}" src="/static/icons/arrow.svg" alt="arrow"/>
-    {{ text }}
+    {% if direction === 'left' %}
+      {{ text }}
+    {% endif %}
   </a>
 {% endmacro %}
